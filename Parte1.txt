@@ -1,0 +1,167 @@
+1-
+
+# Insertar un elemento en una lista (al final, la lista no está ordenada)
+
+lenguaje natural: dada una lista existente se debe de agregar el nodo al final de la misma, este puede ser un nodo ya dado o creado en el momento para su inserción. el nodo es dado por parámetro, se comprueba que el primer elemento de la lista sea nulo, en dicho caso, el nodo queda como primer elemento, sino, se dirige hasta el ultimo elemento y se inserta a continuación.
+
+precondiciones:
+
+- la lista debe de existir
+- el dato o  etiqueta no puede ser null
+
+postcondiciones:
+
+- el nodo se inserta al final de la lista
+- si la lista no tiene ningún elemento, queda inserto como el primero
+
+pseudocodigo:
+
+Insertar(nodo)
+
+com
+
+Si primero <> nulo
+  primero ← nodo
+sino
+  actual ← primero
+  mientras siguiente del actual <> nulo
+    actual ← siguiente del actual
+  fin mientras
+  siguiente del actual ← nodo
+
+fin
+
+Insertar(etiqueta tipo comparable, dato tipo dato)
+
+com
+
+  Si primero <> nulo
+    primero ← nuevo nodo (etiqueta, dato)
+  sino
+    actual ← primero
+    mientras siguiente del actual <> nulo
+      actual ← siguiente del actual
+    fin mientras
+    siguiente del actual ← nuevo nodo (etiqueta, dato)
+
+fin
+
+# Buscar un elemento en una lista
+
+lenguaje natural: dado una clave como parametro se busca a traves de la lista desde el primero hasta el el buscado por la clave dada, en caso de que no se encuentre en la lista se retorna null, de caso contrario se devuelve el nodo.
+
+precondiciones:
+
+- la clave dada no puede ser null
+
+postcondiciones:
+
+- se devuelve el nodo buscado
+- en caso de no existir en la lista se retorna null
+
+pseudocodigo:
+
+buscar (clave tipo comparable)
+
+com
+
+  actual ← primero
+    mientras actual <> nulo
+      Si etiqueta del actual = clave
+        retorna actual
+      finsi
+    actual ← siguiente del actual
+    fin mientras
+  retorno nulo
+
+fin
+
+# Eliminar un elemento de una lista, dada su clave.
+
+lenguaje natural: dado una clave, recorre toda la lista hasta el anterior del objetivo, se le retiran las referencias por lo que se elimina de la lista. en el caso que la lista sea null no se elimina nada, en caso que sea el primer elemento el que hay que eliminar, el segundo elemento ahora sea el primero
+
+precondiciones:
+
+- la clave no puede ser nula
+
+postcondiciones:
+
+- se elimina el objetivo de la lista
+
+pseudocodigo:
+
+eliminar(clave tipo comparable)
+
+com
+
+  Si primero = nulo
+
+    retorna falso
+
+  tambien Si la etiqueta del primero = clave
+
+    primero = siguiente del primero
+
+  finsi
+
+  actual = primero
+
+  mientras siguiente del primero <> nulo
+
+    si etiqueta del siguiente del actual = clave
+
+      siguiente del actual ← siguiente del siguiente del actual
+
+      retorna verdadero
+
+    finsi
+
+  fin mientras
+
+fin
+
+
+# Listar (imprimir) todos los elementos de una lista
+
+lenguaje natural: se fija si esta vacia, si lo esta devuelve un vacio “”, si no esta vacia coloca todos los elementos a imprimir juntos separados por un espacio hasta el ultimo ulemento, se devuelve un solo frase con todos los elementos a imprimir
+
+precondiciones:
+
+-
+
+postcondiciones:
+
+- se retorna toda la ”lista” de nodos a imprimir
+
+pseudocodigo:
+
+imprimir()
+
+com
+
+  si la lista esta vacia
+
+    Devolver una cadena vacía
+
+  finsi
+
+  sb ← nuevo StringBuilder()
+  actual ← primer
+
+  mientras actual <> nulo
+
+    agregar a sb actual + “ ”
+
+    si siguiente del actual = nulo
+
+      se rompe el ciclo while
+
+    finsi
+
+    actual ← siguiente del actual
+
+  fin mientras
+
+  retorno sb
+
+fin
